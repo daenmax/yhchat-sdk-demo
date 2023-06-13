@@ -18,8 +18,6 @@ import org.springframework.stereotype.Service;
 public class MessageNormalDemo implements EventMessageReceiveNormal {
     @Override
     public Integer handle(EventMsgVo eventMsgVo) {
-        String s = JSONUtil.toJsonStr(eventMsgVo);
-        System.out.println(s);
         String chatType = eventMsgVo.getEvent().getMessage().getChatType();
         String chatId = eventMsgVo.getEvent().getChat().getChatId();
         String senderNickname = eventMsgVo.getEvent().getSender().getSenderNickname();

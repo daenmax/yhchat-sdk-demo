@@ -20,8 +20,6 @@ import java.util.HashMap;
 public class MessageInstructionDemo implements EventMessageReceiveInstruction {
     @Override
     public Integer handle(EventMsgVo eventMsgVo) {
-        String s = JSONUtil.toJsonStr(eventMsgVo);
-        System.out.println(s);
         String chatType = eventMsgVo.getEvent().getMessage().getChatType();
         String chatId = eventMsgVo.getEvent().getChat().getChatId();
         String senderNickname = eventMsgVo.getEvent().getSender().getSenderNickname();
@@ -34,7 +32,6 @@ public class MessageInstructionDemo implements EventMessageReceiveInstruction {
             msg = eventMsgVo.getEvent().getMessage().getContent().getText();
         } else if (ContentTypeConstant.FORM.equals(contentType)) {
             HashMap<String, HashMap<String, Object>> formJson = eventMsgVo.getEvent().getMessage().getContent().getFormJson();
-            System.out.println(formJson);
             msg = JSONUtil.toJsonStr(formJson);
         }
         if (ChatTypeConstant.GROUP.equals(chatType)) {
