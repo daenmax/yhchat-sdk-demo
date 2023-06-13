@@ -1,4 +1,4 @@
-package cn.daenx.yhchatDemo;
+package cn.daenx.yhchatDemo.plugin;
 
 import cn.daenx.yhchatsdk.common.constant.ChatTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.ContentTypeConstant;
