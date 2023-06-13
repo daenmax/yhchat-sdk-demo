@@ -64,7 +64,7 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-        <!-- Hutool -->
+        <!-- 引入yhchat core依赖 -->
         <dependency>
             <groupId>cn.daenx</groupId>
             <artifactId>yhchat-sdk-core</artifactId>

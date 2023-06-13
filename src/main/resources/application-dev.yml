@@ -3,3 +3,5 @@ server:
   port: 8035
   servlet:
     context-path: /demo
+yhchat:
+  token: "5e4efc1a2c6849bba23bfaee3dff6760"
