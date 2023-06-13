@@ -3,5 +3,7 @@ server:
   port: 8034
   servlet:
     context-path: /yhchat
+
 yhchat:
+  # 机器人发送消息Token，在控制台中可以看到
   token: "5e4efc1a2c6849bba23bfaee3dff6760"
