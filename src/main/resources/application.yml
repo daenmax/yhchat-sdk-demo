@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: @profiles.active@
+  application:
+    name: yhchatsdk
+
+# 日志
+logging:
+  level:
+    cn.daenx.myadmin: @logging.level@
+    org.springframework: warn
+  config: classpath:logback.xml
