@@ -1,7 +1,7 @@
 package cn.daenx.yhchatDemo;
 
-import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
 import cn.daenx.yhchatsdk.framework.eventInterface.EventMessageReceiveNormal;
+import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
