@@ -5,5 +5,7 @@ server:
     context-path: /yhchat
 
 yhchat:
+  # 是否打印原始消息日志
+  printLog: true
   # 机器人发送消息Token，在控制台中可以看到
   token: "5e4efc1a2c6849bba23bfaee3dff6760"
