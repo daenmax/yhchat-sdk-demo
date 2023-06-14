@@ -9,7 +9,6 @@ import cn.daenx.yhchatsdk.framework.utils.ApiUtil;
 import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
-import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;

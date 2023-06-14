@@ -28,20 +28,20 @@ public class YhchatDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(YhchatDemoApplication.class, args);
         //发送消息
-        ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
-                .Text(RecvTypeConstant.USER, "4137637", "你好")
-                .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
-                .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
-                .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+//        ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
+//                .Text(RecvTypeConstant.USER, "4137637", "你好")
+//                .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
+//                .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
+//                .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
+//        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
 
-        //批量发送消息
-        ApiSendMsgBatchReqV1 reqBatchV1 = new ApiSendMsgBatchReqV1()
-                .Text(RecvTypeConstant.GROUP, Arrays.asList("956034802", "123456789"), "你好2")
-                .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
-                .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
-                .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = ApiUtil.sendMsgBatch(reqBatchV1);
+//        //批量发送消息
+//        ApiSendMsgBatchReqV1 reqBatchV1 = new ApiSendMsgBatchReqV1()
+//                .Text(RecvTypeConstant.GROUP, Arrays.asList("956034802", "123456789"), "你好2")
+//                .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
+//                .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
+//                .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
+//        ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = ApiUtil.sendMsgBatch(reqBatchV1);
     }
 
 }

@@ -41,6 +41,7 @@ public class MessageInstructionDemo implements EventMessageReceiveInstruction {
             msg = eventMsgVo.getEvent().getMessage().getContent().getText();
         } else if (ContentTypeConstant.FORM.equals(contentType)) {
             HashMap<String, HashMap<String, Object>> formJson = eventMsgVo.getEvent().getMessage().getContent().getFormJson();
+            //这里自行解析，我只是简单的toJsonStr方便打印而已
             msg = JSONUtil.toJsonStr(formJson);
         }
         if (ChatTypeConstant.GROUP.equals(chatType)) {
