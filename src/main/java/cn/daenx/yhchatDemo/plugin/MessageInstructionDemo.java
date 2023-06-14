@@ -20,6 +20,13 @@ import java.util.HashMap;
 @Service
 @Order(1)//相同事件插件中的优先级，越小越优先
 public class MessageInstructionDemo implements EventMessageReceiveInstruction {
+    /**
+     * 返回-1，后面的实现类将不再执行
+     * 返回0，后面的实现类继续执行
+     *
+     * @param eventMsgVo
+     * @return
+     */
     @Override
     public Integer handle(EventMsgVo eventMsgVo) {
         String chatType = eventMsgVo.getEvent().getMessage().getChatType();
