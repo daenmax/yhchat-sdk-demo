@@ -1,10 +1,7 @@
 package cn.daenx.yhchatDemo.plugin;
 
-import cn.daenx.yhchatsdk.common.constant.ChatTypeConstant;
-import cn.daenx.yhchatsdk.common.constant.ContentTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
 import cn.daenx.yhchatsdk.framework.eventInterface.EventButtonReportInline;
-import cn.daenx.yhchatsdk.framework.eventInterface.EventMessageReceiveNormal;
 import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
@@ -21,10 +18,10 @@ public class ButtonReportInlineDemo implements EventButtonReportInline {
     public Integer handle(EventMsgVo eventMsgVo) {
         String recvType = eventMsgVo.getEvent().getRecvType();
         String recvId = eventMsgVo.getEvent().getRecvId();
-        String senderId = eventMsgVo.getEvent().getSenderId();
+        String userId = eventMsgVo.getEvent().getUserId();
         String value = eventMsgVo.getEvent().getValue();
         if (RecvTypeConstant.GROUP.equals(recvType)) {
-            log.info("【消息中按钮点击事件】群号[{}]，用户ID[{}]触发了按钮上报，消息：{}", recvId, senderId, value);
+            log.info("【消息中按钮点击事件】群号[{}]，用户ID[{}]触发了按钮上报，消息：{}", recvId, userId, value);
         } else if (RecvTypeConstant.USER.equals(recvType)) {
             log.info("【消息中按钮点击事件】用户ID[{}]触发了按钮上报，消息：{}", recvId, value);
         }

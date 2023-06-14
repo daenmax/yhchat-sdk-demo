@@ -64,11 +64,11 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-        <!-- 引入yhchat core依赖 -->
+        <!-- 云湖yhchat-sdk-core -->
         <dependency>
             <groupId>cn.daenx</groupId>
             <artifactId>yhchat-sdk-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
