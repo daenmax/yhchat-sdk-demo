@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 /**
  * 普通消息事件插件
+ *
+ * @author DaenMax
  */
 @Slf4j
 @Service

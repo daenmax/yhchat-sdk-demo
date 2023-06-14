@@ -13,6 +13,8 @@ import java.util.HashMap;
 
 /**
  * 指令消息事件插件
+ *
+ * @author DaenMax
  */
 @Slf4j
 @Service

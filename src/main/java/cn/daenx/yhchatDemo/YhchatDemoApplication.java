@@ -14,7 +14,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
-
+/**
+ * 启动类
+ *
+ * @author DaenMax
+ */
 @SpringBootApplication
 //"cn.daenx.yhchatsdk" 是core的路径，切勿修改
 //"cn.daenx.yhchatDemo" 是当前demo的包路径

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 /**
  * 机器人设置事件插件
+ *
+ * @author DaenMax
  */
 @Slf4j
 @Service
