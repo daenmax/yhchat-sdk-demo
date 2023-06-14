@@ -1,12 +1,6 @@
 package cn.daenx.yhchatDemo;
 
-import cn.daenx.yhchatsdk.common.constant.ButtonActionTypeConstant;
-import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
-import cn.daenx.yhchatsdk.framework.utils.ApiUtil;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgBatchReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgBatchRetV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
