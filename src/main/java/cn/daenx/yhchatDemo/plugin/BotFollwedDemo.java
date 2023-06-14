@@ -19,7 +19,7 @@ public class BotFollwedDemo implements EventBotFollwed {
         String chatId = eventMsgVo.getEvent().getChatId();
         String userId = eventMsgVo.getEvent().getUserId();
         String nickname = eventMsgVo.getEvent().getNickname();
-        //头像
+        //用户头像
         String avatarUrl = eventMsgVo.getEvent().getAvatarUrl();
         log.info("【关注机器人事件】机器人ID[{}]被用户[{}]（{}）关注了", chatId, userId, nickname);
         //返回-1则不再投递后面的同事件插件
