@@ -34,8 +34,8 @@ public class MessageInstructionDemo implements EventMessageReceiveInstruction {
         String senderNickname = eventMsgVo.getEvent().getSender().getSenderNickname();
         String senderId = eventMsgVo.getEvent().getSender().getSenderId();
         String contentType = eventMsgVo.getEvent().getMessage().getContentType();
-        Integer instructionId = eventMsgVo.getEvent().getMessage().getInstructionId();
-        String instructionName = eventMsgVo.getEvent().getMessage().getInstructionName();
+        Integer commandId = eventMsgVo.getEvent().getMessage().getCommandId();
+        String commandName = eventMsgVo.getEvent().getMessage().getCommandName();
         String msg = null;
         if (ContentTypeConstant.TEXT.equals(contentType)) {
             msg = eventMsgVo.getEvent().getMessage().getContent().getText();
@@ -45,9 +45,9 @@ public class MessageInstructionDemo implements EventMessageReceiveInstruction {
             msg = JSONUtil.toJsonStr(formJson);
         }
         if (ChatTypeConstant.GROUP.equals(chatType)) {
-            log.info("【群聊指令消息】群号[{}]，用户[{}]（{}）触发了指令[{}]({})，附带内容为：{}", chatId, senderId, senderNickname, instructionId, instructionName, msg);
+            log.info("【群聊指令消息】群号[{}]，用户[{}]（{}）触发了指令[{}]({})，附带内容为：{}", chatId, senderId, senderNickname, commandId, commandName, msg);
         } else if (ChatTypeConstant.BOT.equals(chatType)) {
-            log.info("【私聊指令消息】用户[{}]（{}）触发了指令[{}]({})，附带内容为：{}", senderId, senderNickname, instructionId, instructionName, msg);
+            log.info("【私聊指令消息】用户[{}]（{}）触发了指令[{}]({})，附带内容为：{}", senderId, senderNickname, commandId, commandName, msg);
         }
         //返回-1则不再投递后面的同事件插件
         //返回0则继续投递给后面的同事件插件处理
