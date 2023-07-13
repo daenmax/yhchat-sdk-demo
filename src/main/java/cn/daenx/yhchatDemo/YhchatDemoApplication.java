@@ -93,7 +93,7 @@ public class YhchatDemoApplication {
 
 
     /**
-     * 设置看板
+     * 设置看板示例
      */
     public static void setBoardDemo() {
         ApiSetBoardReqV1 boardReqV1 = new ApiSetBoardReqV1();
@@ -106,7 +106,7 @@ public class YhchatDemoApplication {
 
 
     /**
-     * 取消设置看板
+     * 取消设置看板示例
      */
     public static void disBoardDemo() {
         ApiDisBoardReqV1 boardReqV1 = new ApiDisBoardReqV1();
