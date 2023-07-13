@@ -4,12 +4,8 @@ package cn.daenx.yhchatDemo;
 import cn.daenx.yhchatsdk.common.constant.ButtonActionTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
 import cn.daenx.yhchatsdk.framework.utils.ApiUtil;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiEditMsgReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgBatchReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiEditMsgRetV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgBatchRetV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.req.*;
+import cn.daenx.yhchatsdk.framework.vo.v1.ret.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,13 +26,19 @@ public class YhchatDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(YhchatDemoApplication.class, args);
         //发送消息
-        sendMsgDemo();
+//        sendMsgDemo();
 
         //批量发送消息
-        sendMsgBatchDemo();
+//        sendMsgBatchDemo();
 
         //发送消息后再编辑消息示例
-        sendMsgAndEditMsgDemo();
+//        sendMsgAndEditMsgDemo();
+
+        //设置看板
+//        setBoardDemo();
+
+        //取消设置看板
+//        disBoardDemo();
     }
 
     /**
@@ -87,5 +89,31 @@ public class YhchatDemoApplication {
                 .Text(RecvTypeConstant.USER, "4137637", "哈哈哈哈哈哈")
                 .addButton("速速跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null);
         ApiEditMsgRetV1 apiEditMsgRetV1 = ApiUtil.editMsg(editV1);
+    }
+
+
+    /**
+     * 设置看板
+     */
+    public static void setBoardDemo() {
+        ApiSetBoardReqV1 boardReqV1 = new ApiSetBoardReqV1();
+        //对单个用户设置看板
+        boardReqV1.Text(RecvTypeConstant.USER, "4137637", "你好");
+        //对全局用户设置看板
+//        boardReqV1.Html(null, null, "<h1>我是全局看板，你好朋友</h1>");
+        ApiSetBoardRetV1 apiSetBoardRetV1 = ApiUtil.setBoard(boardReqV1);
+    }
+
+
+    /**
+     * 取消设置看板
+     */
+    public static void disBoardDemo() {
+        ApiDisBoardReqV1 boardReqV1 = new ApiDisBoardReqV1();
+        //取消对单个用户设置的看板
+        boardReqV1.Dis(RecvTypeConstant.USER, "4137637");
+        //取消对全局用户设置的看板
+//        boardReqV1.Dis(null, null);
+        ApiDisBoardRetV1 apiDisBoardRetV1 = ApiUtil.disBoard(boardReqV1);
     }
 }
