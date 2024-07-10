@@ -34,6 +34,9 @@ public class YhchatDemoApplication {
         //发送消息后再编辑消息示例
 //        sendMsgAndEditMsgDemo();
 
+        //发送消息后再撤回消息示例
+//        sendMsgAndRecllMsgDemo();
+
         //设置看板
 //        setBoardDemo();
 
@@ -89,6 +92,30 @@ public class YhchatDemoApplication {
                 .Text(RecvTypeConstant.USER, "4137637", "哈哈哈哈哈哈")
                 .addButton("速速跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null);
         ApiEditMsgRetV1 apiEditMsgRetV1 = ApiUtil.editMsg(editV1);
+    }
+
+
+    /**
+     * 发送消息后再撤回消息示例
+     */
+    public static void sendMsgAndRecllMsgDemo() {
+        //发送消息
+        ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
+                .Text(RecvTypeConstant.USER, "4137637", "你好")
+                .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
+                .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
+                .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
+        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        String msgId = apiSendRetV1.getData().getMessageInfo().getMsgId();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        //撤回消息
+        ApiRecallMsgReqV1 editV1 = new ApiRecallMsgReqV1(msgId, RecvTypeConstant.USER, "4137637");
+        ApiRecallMsgRetV1 apiRecallMsgRetV1 = ApiUtil.recallMsg(editV1);
+        System.out.println(apiRecallMsgRetV1.toString());
     }
 
 
