@@ -19,8 +19,8 @@ import java.util.Arrays;
  */
 @SpringBootApplication
 //"cn.daenx.yhchatsdk" 是core的路径，切勿修改
-//"cn.daenx.yhchatDemo" 是当前demo的包路径
-@ComponentScan({"cn.daenx.yhchatsdk", "cn.daenx.yhchatDemo"})
+//"cn.daenx.yhchatDemo.plugin" 是当前demo的插件所在包路径
+@ComponentScan({"cn.daenx.yhchatsdk", "cn.daenx.yhchatDemo.plugin"})
 public class YhchatDemoApplication {
 
     public static void main(String[] args) {
