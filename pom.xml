@@ -5,40 +5,22 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.3.3</version>
         <relativePath/>
     </parent>
     <groupId>cn.daenx</groupId>
     <artifactId>yhchat-sdk-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>yhchat-sdk-demo</name>
-    <description>yhchat-sdk-demo</description>
+    <description>
+        云湖SDK Core服务的使用Demo，参考或使用此 Demo 可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
+    </description>
+    <url>https://gitee.com/daenmax/yhchat-sdk-demo</url>
     <properties>
-        <java.version>1.8</java.version>
-        <spring-boot.version>2.7.12</spring-boot.version>
-        <hutool.version>5.8.19</hutool.version>
+        <java.version>17</java.version>
+        <spring-boot.version>3.3.3</spring-boot.version>
+        <hutool.version>5.8.32</hutool.version>
     </properties>
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <!-- 环境标识，需要与配置文件的名称相对应 -->
-                <profiles.active>dev</profiles.active>
-                <logging.level>info</logging.level>
-            </properties>
-            <activation>
-                <!-- 默认环境 -->
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <profiles.active>prod</profiles.active>
-                <logging.level>warn</logging.level>
-            </properties>
-        </profile>
-    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,13 +44,13 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.29</version>
+            <version>${hutool.version}</version>
         </dependency>
         <!-- 云湖yhchat-sdk-core -->
         <dependency>
             <groupId>cn.daenx</groupId>
             <artifactId>yhchat-sdk-core</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 

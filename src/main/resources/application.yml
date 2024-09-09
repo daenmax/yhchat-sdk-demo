@@ -1,12 +1,12 @@
 spring:
   profiles:
-    active: @profiles.active@
+    active: dev
   application:
     name: yhchatsdkDemo
 
 # 日志
 logging:
   level:
-    cn.daenx.myadmin: @logging.level@
+    cn.daenx.myadmin: info
     org.springframework: warn
   config: classpath:logback.xml

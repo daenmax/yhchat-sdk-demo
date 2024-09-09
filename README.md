@@ -2,9 +2,15 @@
 
 云湖SDK Core服务的使用Demo，参考或使用此 Demo 可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
 
-Demo基于SpringBoot2.x、JDK8开发（您可以根据需求进行更换）
+Demo基于SpringBoot3.x、JDK17开发（您可以根据需求进行更换）
 
-Core支持SpringBoot2.x、SpringBoot3.x、JDK8、、JDK17
+
+Core版本支持情况
+
+| Core版本      | SpringBoot | JDK |
+|-------------|------------|-----|
+| 1.1.0及以上    | 3.x        | 17  |
+| 1.1.0以下（不含） | 2.x        | 8   |
 
 ## 🦊 链接
 
@@ -16,11 +22,9 @@ Core支持SpringBoot2.x、SpringBoot3.x、JDK8、、JDK17
 
 [文档教程](https://gitee.com/daenmax/yhchat-sdk-core/wikis)
 
-
 ### 云湖官网
 
 [云湖社交](https://www.yhchat.com/)
-
 
 ## ⚡ 反馈与交流
 
