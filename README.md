@@ -16,7 +16,9 @@ Core版本支持情况
 
 ### Core
 
-[yhchat-sdk-core](https://gitee.com/daenmax/yhchat-sdk-core)
+gitee：[yhchat-sdk-core](https://gitee.com/daenmax/yhchat-sdk-core)
+
+github：[yhchat-sdk-core](https://github.com/daenmax/yhchat-sdk-core)
 
 ### 文档教程
 
