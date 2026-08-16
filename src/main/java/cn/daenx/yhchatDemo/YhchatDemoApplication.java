@@ -4,6 +4,7 @@ package cn.daenx.yhchatDemo;
 import cn.daenx.yhchatsdk.common.constant.ButtonActionTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
 import cn.daenx.yhchatsdk.framework.utils.BoardUtil;
+import cn.daenx.yhchatsdk.framework.utils.GroupUtil;
 import cn.daenx.yhchatsdk.framework.utils.MessageUtil;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.*;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.*;
@@ -28,41 +29,76 @@ public class YhchatDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(YhchatDemoApplication.class, args);
+
+
+//——————————————————消息接口——————————————————————开始
         //发送消息
 //        sendMsgDemo();
-
-        //流式发送消息
-//        sendMsgStreamDemo();
-
-        //发送图片消息
-//        sendImageDemo();
-
-        //发送视频消息
-//        sendVideoDemo();
-
-        //发送文件消息
-//        sendFileDemo();
-
-        //发送HTML消息
-//        sendHtmlDemo();
-
-        //消息列表
-//        messageNormalDemo();
-
         //批量发送消息
 //        sendMsgBatchDemo();
-
-        //发送消息后再编辑消息示例
-//        sendMsgAndEditMsgDemo();
-
         //发送消息后再撤回消息示例
 //        sendMsgAndRecllMsgDemo();
+        //发送消息后再编辑消息示例
+//        sendMsgAndEditMsgDemo();
+        //流式发送消息
+//        sendMsgStreamDemo();
+        //发送图片消息
+//        sendImageDemo();
+        //发送视频消息
+//        sendVideoDemo();
+        //发送文件消息
+//        sendFileDemo();
+        //发送HTML消息
+//        sendHtmlDemo();
+        //消息列表
+//        messageNormalDemo();
+//——————————————————消息接口——————————————————————结束
 
+
+
+
+
+
+//——————————————————看板接口——————————————————————开始
         //设置看板
 //        setBoardDemo();
 
         //取消设置看板
 //        disBoardDemo();
+//——————————————————看板接口——————————————————————结束
+
+
+
+
+
+
+
+
+//——————————————————群组管理接口——————————————————————开始
+        //创建标签
+//        createTagDemo();
+        //修改标签
+//        editTagDemo();
+        //获取群标签列表
+//        tagListDemo();
+        //给用户添加标签
+//        addUserTagDemo();
+        //给用户移除标签
+//        removeUserTagDemo();
+        //删除标签
+//        deleteTagDemo();
+        //移除群成员
+//        removeMemberDemo();
+        //群成员禁言（600秒=10分钟）
+//        gagMemberDemo();
+        //群内消息类型控制
+//        msgTypeLimitDemo();
+//——————————————————群组管理接口——————————————————————结束
+
+
+
+
+
     }
 
     /**
@@ -277,5 +313,98 @@ public class YhchatDemoApplication {
         //取消对全局用户设置的看板
 //        boardReqV1.Dis(null, null);
         ApiDisBoardRetV1 apiDisBoardRetV1 = BoardUtil.disBoard(boardReqV1);
+    }
+
+    /**
+     * 创建标签示例
+     */
+    public static void createTagDemo() {
+        ApiGroupTagCreateReqV1 reqV1 = new ApiGroupTagCreateReqV1("956034802", "VIP用户3", "#FF5733", "VIP会员用户标签2", 1L);
+        ApiGroupTagCreateRetV1 apiGroupTagCreateRetV1 = GroupUtil.createTag(reqV1);
+        System.out.println(apiGroupTagCreateRetV1);
+    }
+
+
+    /**
+     * 修改标签示例（把“VIP用户”改名为“SVIP用户”）
+     */
+    public static void editTagDemo() {
+        ApiGroupTagEditReqV1 reqV1 = new ApiGroupTagEditReqV1("956034802", "VIP用户", "SVIP用户", "#FF5733", "VIP会员用户标签（已更新）", 2L);
+        ApiGroupTagEditRetV1 apiGroupTagEditRetV1 = GroupUtil.editTag(reqV1);
+        System.out.println(apiGroupTagEditRetV1);
+    }
+
+
+    /**
+     * 获取群标签列表示例
+     */
+    public static void tagListDemo() {
+        ApiGroupTagListReqV1 reqV1 = new ApiGroupTagListReqV1("956034802");
+        ApiGroupTagListRetV1 apiGroupTagListRetV1 = GroupUtil.tagList(reqV1);
+        for (ApiGroupTagListRetV1.RetData.TagInfo tagInfo : apiGroupTagListRetV1.getData().getList()) {
+            //tag=VIP用户2, desc=VIP会员用户标签2, color=#FF5733, sort=1
+            System.out.println(tagInfo.getTag() + "," + tagInfo.getDesc() + "," + tagInfo.getColor() + "," + tagInfo.getSort());
+        }
+        System.out.println(apiGroupTagListRetV1);
+    }
+
+
+    /**
+     * 给用户添加标签示例
+     */
+    public static void addUserTagDemo() {
+        ApiGroupTagUserRelateReqV1 reqV1 = new ApiGroupTagUserRelateReqV1("1638117", "VIP用户2", "956034802");
+        ApiGroupTagUserRelateRetV1 apiGroupTagUserRelateRetV1 = GroupUtil.addUserTag(reqV1);
+        System.out.println(apiGroupTagUserRelateRetV1);
+    }
+
+
+    /**
+     * 给用户移除标签示例
+     */
+    public static void removeUserTagDemo() {
+        ApiGroupTagUserRelateCancelReqV1 reqV1 = new ApiGroupTagUserRelateCancelReqV1("1638117", "VIP用户2", "956034802");
+        ApiGroupTagUserRelateCancelRetV1 apiGroupTagUserRelateCancelRetV1 = GroupUtil.removeUserTag(reqV1);
+        System.out.println(apiGroupTagUserRelateCancelRetV1);
+    }
+
+
+    /**
+     * 删除标签示例
+     */
+    public static void deleteTagDemo() {
+        ApiGroupTagDeleteReqV1 reqV1 = new ApiGroupTagDeleteReqV1("VIP用户2", "956034802");
+        ApiGroupTagDeleteRetV1 apiGroupTagDeleteRetV1 = GroupUtil.deleteTag(reqV1);
+        System.out.println(apiGroupTagDeleteRetV1);
+    }
+
+
+    /**
+     * 移除群成员示例
+     */
+    public static void removeMemberDemo() {
+        ApiGroupRemoveMemberReqV1 reqV1 = new ApiGroupRemoveMemberReqV1("1638117", "956034802");
+        ApiGroupRemoveMemberRetV1 apiGroupRemoveMemberRetV1 = GroupUtil.removeMember(reqV1);
+        System.out.println(apiGroupRemoveMemberRetV1);
+    }
+
+
+    /**
+     * 群成员禁言示例（600秒=10分钟，0为解除禁言，-1为永久禁言）
+     */
+    public static void gagMemberDemo() {
+        ApiGroupGagMemberReqV1 reqV1 = new ApiGroupGagMemberReqV1("1638117", "956034802", 600L);
+        ApiGroupGagMemberRetV1 apiGroupGagMemberRetV1 = GroupUtil.gagMember(reqV1);
+        System.out.println(apiGroupGagMemberRetV1);
+    }
+
+
+    /**
+     * 群内消息类型控制示例（传空字符串表示不限制任何消息类型）
+     */
+    public static void msgTypeLimitDemo() {
+        ApiGroupMsgTypeLimitReqV1 reqV1 = new ApiGroupMsgTypeLimitReqV1("956034802", "text,image,video");
+        ApiGroupMsgTypeLimitRetV1 apiGroupMsgTypeLimitRetV1 = GroupUtil.msgTypeLimit(reqV1);
+        System.out.println(apiGroupMsgTypeLimitRetV1);
     }
 }
