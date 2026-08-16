@@ -8,7 +8,6 @@ yhchat:
   # 是否打印原始消息日志
   printLog: true
   # 机器人发送消息Token，在控制台中可以看到
-#  token: "5e4efc1xxxxxxxxxxxx3dff6760"
-  token: "f9fc84cbe698423bbd1aa889a6ee8344"
-  # 接入模式，空或者1=http，2=websocket
-  mode: "2"
+  token: "5e4efc1xxxxxxxxxxxx3dff6760"
+  # 接入模式，1=http，2=websocket
+  mode: "1"
