@@ -3,7 +3,8 @@ package cn.daenx.yhchatDemo;
 
 import cn.daenx.yhchatsdk.common.constant.ButtonActionTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
-import cn.daenx.yhchatsdk.framework.utils.ApiUtil;
+import cn.daenx.yhchatsdk.framework.utils.BoardUtil;
+import cn.daenx.yhchatsdk.framework.utils.MessageUtil;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.*;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.*;
 import org.springframework.boot.SpringApplication;
@@ -73,7 +74,7 @@ public class YhchatDemoApplication {
                 .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                 .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                 .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
     }
 
 
@@ -103,7 +104,7 @@ public class YhchatDemoApplication {
 
             ApiSendMsgStreamReqV1 reqV1 = new ApiSendMsgStreamReqV1()
                     .Text(RecvTypeConstant.USER, "4137637", pipedInputStream);
-            ApiSendMsgStreamRetV1 apiSendMsgStreamRetV1 = ApiUtil.sendMsgStream(reqV1);
+            ApiSendMsgStreamRetV1 apiSendMsgStreamRetV1 = MessageUtil.sendMsgStream(reqV1);
             System.out.println(apiSendMsgStreamRetV1);
 
             pipedInputStream.close();
@@ -118,7 +119,7 @@ public class YhchatDemoApplication {
     public static void sendImageDemo() {
         ApiUploadReqV1 reqV1Upload = new ApiUploadReqV1()
                 .Image("C:\\Users\\13301\\Desktop\\111.png");
-        ApiUploadRetV1 uploadRetV1 = ApiUtil.upload(reqV1Upload);
+        ApiUploadRetV1 uploadRetV1 = MessageUtil.upload(reqV1Upload);
         if (uploadRetV1.getCode() != 1) {
             System.out.println("上传图片失败：" + uploadRetV1.getCode() + ":" + uploadRetV1.getMsg());
             return;
@@ -126,7 +127,7 @@ public class YhchatDemoApplication {
         System.out.println(uploadRetV1);
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
                 .Image(RecvTypeConstant.USER, "4137637", uploadRetV1.getData().getImageKey());
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         System.out.println(apiSendRetV1);
     }
 
@@ -137,7 +138,7 @@ public class YhchatDemoApplication {
     public static void sendVideoDemo() {
         ApiUploadReqV1 reqV1Upload = new ApiUploadReqV1()
                 .Video("C:\\Users\\13301\\Desktop\\222.mp4");
-        ApiUploadRetV1 uploadRetV1 = ApiUtil.upload(reqV1Upload);
+        ApiUploadRetV1 uploadRetV1 = MessageUtil.upload(reqV1Upload);
         if (uploadRetV1.getCode() != 1) {
             System.out.println("上传视频失败：" + uploadRetV1.getCode() + ":" + uploadRetV1.getMsg());
             return;
@@ -145,7 +146,7 @@ public class YhchatDemoApplication {
         System.out.println(uploadRetV1);
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
                 .Video(RecvTypeConstant.USER, "4137637", uploadRetV1.getData().getVideoKey());
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         System.out.println(apiSendRetV1);
     }
 
@@ -156,7 +157,7 @@ public class YhchatDemoApplication {
     public static void sendFileDemo() {
         ApiUploadReqV1 reqV1Upload = new ApiUploadReqV1()
                 .File("C:\\Users\\13301\\Desktop\\333.txt");
-        ApiUploadRetV1 uploadRetV1 = ApiUtil.upload(reqV1Upload);
+        ApiUploadRetV1 uploadRetV1 = MessageUtil.upload(reqV1Upload);
         if (uploadRetV1.getCode() != 1) {
             System.out.println("上传文件失败：" + uploadRetV1.getCode() + ":" + uploadRetV1.getMsg());
             return;
@@ -164,7 +165,7 @@ public class YhchatDemoApplication {
         System.out.println(uploadRetV1);
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
                 .File(RecvTypeConstant.USER, "4137637", uploadRetV1.getData().getFileKey());
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         System.out.println(apiSendRetV1);
     }
 
@@ -175,7 +176,7 @@ public class YhchatDemoApplication {
     public static void sendHtmlDemo() {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1()
                 .Html(RecvTypeConstant.GROUP, "956034802", "<del>删除线</del>");
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         System.out.println(apiSendRetV1);
     }
 
@@ -185,7 +186,7 @@ public class YhchatDemoApplication {
      */
     public static void messageNormalDemo() {
         ApiMessagesReqV1 reqV1 = new ApiMessagesReqV1(RecvTypeConstant.GROUP, "956034802", null, 20, null);
-        ApiMessagesRetV1 apiMessagesRetV1 = ApiUtil.messages(reqV1);
+        ApiMessagesRetV1 apiMessagesRetV1 = MessageUtil.messages(reqV1);
         System.out.println(apiMessagesRetV1);
     }
 
@@ -199,7 +200,7 @@ public class YhchatDemoApplication {
                 .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                 .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                 .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = ApiUtil.sendMsgBatch(reqBatchV1);
+        ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = MessageUtil.sendMsgBatch(reqBatchV1);
     }
 
     /**
@@ -213,7 +214,7 @@ public class YhchatDemoApplication {
                 .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                 .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                 .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         String msgId = apiSendRetV1.getData().getMessageInfo().getMsgId();
         try {
             Thread.sleep(3000);
@@ -225,7 +226,7 @@ public class YhchatDemoApplication {
                 .setMsgId(msgId)
                 .Text(RecvTypeConstant.USER, "4137637", "哈哈哈哈哈哈")
                 .addButton("速速跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null);
-        ApiEditMsgRetV1 apiEditMsgRetV1 = ApiUtil.editMsg(editV1);
+        ApiEditMsgRetV1 apiEditMsgRetV1 = MessageUtil.editMsg(editV1);
     }
 
 
@@ -239,7 +240,7 @@ public class YhchatDemoApplication {
                 .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                 .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                 .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-        ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+        ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
         String msgId = apiSendRetV1.getData().getMessageInfo().getMsgId();
         try {
             Thread.sleep(3000);
@@ -248,7 +249,7 @@ public class YhchatDemoApplication {
         }
         //撤回消息
         ApiRecallMsgReqV1 editV1 = new ApiRecallMsgReqV1(msgId, RecvTypeConstant.USER, "4137637");
-        ApiRecallMsgRetV1 apiRecallMsgRetV1 = ApiUtil.recallMsg(editV1);
+        ApiRecallMsgRetV1 apiRecallMsgRetV1 = MessageUtil.recallMsg(editV1);
         System.out.println(apiRecallMsgRetV1.toString());
     }
 
@@ -262,7 +263,7 @@ public class YhchatDemoApplication {
         boardReqV1.Text(RecvTypeConstant.USER, "4137637", "你好");
         //对全局用户设置看板
 //        boardReqV1.Html(null, null, "<h1>我是全局看板，你好朋友</h1>");
-        ApiSetBoardRetV1 apiSetBoardRetV1 = ApiUtil.setBoard(boardReqV1);
+        ApiSetBoardRetV1 apiSetBoardRetV1 = BoardUtil.setBoard(boardReqV1);
     }
 
 
@@ -275,6 +276,6 @@ public class YhchatDemoApplication {
         boardReqV1.Dis(RecvTypeConstant.USER, "4137637");
         //取消对全局用户设置的看板
 //        boardReqV1.Dis(null, null);
-        ApiDisBoardRetV1 apiDisBoardRetV1 = ApiUtil.disBoard(boardReqV1);
+        ApiDisBoardRetV1 apiDisBoardRetV1 = BoardUtil.disBoard(boardReqV1);
     }
 }

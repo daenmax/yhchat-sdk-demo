@@ -5,7 +5,7 @@ import cn.daenx.yhchatsdk.common.constant.ChatTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.ContentTypeConstant;
 import cn.daenx.yhchatsdk.common.constant.RecvTypeConstant;
 import cn.daenx.yhchatsdk.framework.eventInterface.EventMessageReceiveNormal;
-import cn.daenx.yhchatsdk.framework.utils.ApiUtil;
+import cn.daenx.yhchatsdk.framework.utils.MessageUtil;
 import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
@@ -51,7 +51,7 @@ public class MessageNormalDemo implements EventMessageReceiveNormal {
                     .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                     .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                     .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-            ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+            ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
             if (apiSendRetV1.getCode() != 1) {
                 log.error("消息发送失败");
             }
@@ -62,7 +62,7 @@ public class MessageNormalDemo implements EventMessageReceiveNormal {
                     .addButton("跳转", ButtonActionTypeConstant.JUMP_URL, "https://www.baidu.com/", null)
                     .addButton("复制", ButtonActionTypeConstant.COPY, null, "复制成功啦")
                     .addButton("上报", ButtonActionTypeConstant.REPORT, null, "上报成功啦");
-            ApiSendMsgRetV1 apiSendRetV1 = ApiUtil.sendMsg(reqV1);
+            ApiSendMsgRetV1 apiSendRetV1 = MessageUtil.sendMsg(reqV1);
             if (apiSendRetV1.getCode() != 1) {
                 log.error("消息发送失败");
             }
